@@ -35,6 +35,10 @@ export default function Home() {
   const totalValue = data.map((row)=>{
     return row.isChecked ? row.balance : 0
   }).reduce((b, a) => b + a, 0)
+  const totalCheckedRows = data.filter((row)=>{
+    return row.isChecked
+  }).length
+
   return (
     <>
       <Head>
@@ -49,10 +53,10 @@ export default function Home() {
         <Center>
           <TableContainer w="1000px" borderColor="slate" borderWidth={1} borderRadius="xl" >
             <Table variant='simple'>
-              <TableCaption>Imperial to metric conversion factors</TableCaption>
+              <TableCaption>Submission from Kevin Scully</TableCaption>
               <Thead>
                 <Tr>
-                  <Th></Th>
+                  <Th maxW={10}></Th>
                   <Th>Creditor</Th>
                   <Th>First Name</Th>
                   <Th>Last Name</Th>
@@ -63,10 +67,8 @@ export default function Home() {
               <Tbody>
                 {data && data.map((row) => {
                   return (<Tr key={`row_${row.id}`}>
-                    <Td><Checkbox
-                    
+                    <Td><Checkbox                    
                     isChecked={row.isChecked || false}
-                    // isIndeterminate={isIndeterminate}
                     onChange={(e) => checkRow(row)}
                     >
                     </Checkbox></Td>
@@ -89,6 +91,14 @@ export default function Home() {
                   <Th />
                   <Th />
                   <Th data-testid="total-value" isNumeric>{totalValue}</Th>
+                </Tr>
+                <Tr>
+                  <Th>Total Row Count:</Th>
+                  <Th data-testid="total-rows" textAlign="start">{data.length}</Th>
+                  <Th>Total Checked Rows:</Th>
+                  <Th data-testid="total-checked-rows" textAlign="start">{totalCheckedRows}</Th>
+                  <Th />
+                  <Th />
                 </Tr>
                 <Tr>
                   <Th><Button onClick={addDebt} data-testid="add-debt" colorScheme="green">Add Debt</Button></Th>

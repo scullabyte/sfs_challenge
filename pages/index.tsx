@@ -1,5 +1,5 @@
 import Head from 'next/head'
-import { Center, Container, Spacer, Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
+import { Center, Container, Heading, Spacer, Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
 
 
 export default function Home() {
@@ -13,6 +13,7 @@ export default function Home() {
       </Head>
       <VStack>
         <Container h={20} />
+        <Heading as="h1">SFS Challenge App</Heading>
         <Center>
           <TableContainer w="1000px" borderColor="slate" borderWidth={1} borderRadius="xl" >
             <Table variant='simple'>

@@ -11,5 +11,14 @@
       ],
       "extends": ["plugin:testing-library/react"]
     }
-  ]
+  ],
+  "ignorePatterns": ["node_modules/", ".next/"],
+  "settings": {
+    "import/resolver": {
+      "alias": [
+          ["@/components", "./components"],
+          ["@/pages", "./pages"]
+      ]
+    }
+  }
 }

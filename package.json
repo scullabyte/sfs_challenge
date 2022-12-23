@@ -7,6 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
+    "lint.fix": "next lint --fix",
     "test": "jest --watch",
     "test:ci": "jest --ci"
   },
@@ -23,15 +24,20 @@
     "framer-motion": "^8.0.2",
     "next": "13.1.0",
     "react": "18.2.0",
+    "react-currency-format": "^1.1.0",
     "react-dom": "18.2.0",
     "typescript": "4.9.4"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "5.16.4",
+    "@testing-library/jest-dom": "^5.16.5",
     "@testing-library/react": "13.2.0",
     "@testing-library/user-event": "14.2.0",
     "@types/react": "18.0.9",
+    "@types/react-currency-format": "^1.0.0",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-testing-library": "^5.9.1",
     "jest": "28.1.0",
     "jest-environment-jsdom": "28.1.0",
-    "typescript": "4.6.4"  }
+    "typescript": "4.6.4"
+  }
 }

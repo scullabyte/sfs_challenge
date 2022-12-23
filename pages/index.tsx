@@ -1,6 +1,7 @@
 import Head from 'next/head'
+import CurrencyFormat from 'react-currency-format';
 import { Center, Container, Heading, Spacer, Table, TableCaption, TableContainer, Tbody, Td, Tfoot, Th, Thead, Tr, VStack } from '@chakra-ui/react'
-
+import jsonData from '../data.json';
 
 export default function Home() {
   return (
@@ -28,13 +29,18 @@ export default function Home() {
                 </Tr>
               </Thead>
               <Tbody>
-                <Tr>
-                  <Td>Creditor</Td>
-                  <Td>First Name</Td>
-                  <Td>Last Name</Td>
-                  <Td isNumeric>25.4%</Td>
-                  <Td isNumeric>235.4</Td>
-                </Tr>
+                {jsonData && jsonData.map((row) => {
+                  return (<Tr key={`row_${row.id}`}>
+                    <Td>{row.creditorName}</Td>
+                    <Td>{row.firstName}</Td>
+                    <Td>{row.lastName}</Td>
+                    <Td isNumeric>{row.minPaymentPercentage}%</Td>
+                    <Td>
+                      <CurrencyFormat value={row.balance} displayType={'text'} thousandSeparator={true} prefix={'$'} />
+                    </Td>
+                  </Tr>)
+                })}
+
               </Tbody>
               <Tfoot>
                 <Tr bgColor="lightblue">

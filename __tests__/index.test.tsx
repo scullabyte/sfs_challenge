@@ -1,4 +1,5 @@
 import { render, screen } from '@testing-library/react'
+import jsonData from '../data.json';
 import Home from '@/pages/index'
 
 describe('Home', () => {
@@ -15,7 +16,7 @@ describe('Home', () => {
   it('renders correct table rows', () => {
     render(<Home />)
     const rows = screen.getAllByRole('row')
-    expect(rows.length).toEqual(3)
+    expect(rows.length).toEqual(jsonData.length+2)
   })
 
 })

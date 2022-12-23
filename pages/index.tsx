@@ -23,7 +23,6 @@ export default function Home() {
     setData(data.filter((_, index) => index < data.length - 1))
   }
   const checkRow = (row: JSONData[number]) => {
-    // row.isChecked = !row.isChecked
     const newData = data.map((_row)=>{
       if(_row.id===row.id){
         _row.isChecked = !row.isChecked
@@ -90,7 +89,8 @@ export default function Home() {
                   <Th />
                   <Th />
                   <Th />
-                  <Th data-testid="total-value" isNumeric>{totalValue}</Th>
+                  <Th data-testid="total-value" isNumeric>
+                  <CurrencyFormat value={totalValue} displayType={'text'} thousandSeparator={true} prefix={'$'} /></Th>
                 </Tr>
                 <Tr>
                   <Th>Total Row Count:</Th>

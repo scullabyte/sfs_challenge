@@ -11,4 +11,11 @@ describe('Home', () => {
 
     expect(heading).toBeInTheDocument()
   })
+
+  it('renders correct table rows', () => {
+    render(<Home />)
+    const rows = screen.getAllByRole('row')
+    expect(rows.length).toEqual(3)
+  })
+
 })

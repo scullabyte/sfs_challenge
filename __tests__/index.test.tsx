@@ -59,10 +59,4 @@ describe('Home', () => {
         const expectedNumber = screen.getByTestId('total-checked-rows').innerHTML
         expect(+expectedNumber).toEqual(DEMO_ROWS.length)
     })
-    it('correctly shows total row count', () => {
-        render(<Home />)
-        const expectedNumber = screen.getByTestId('total-rows').innerHTML
-        expect(+expectedNumber).toEqual(jsonData.length)
-
-    })
 })
